@@ -1,0 +1,36 @@
+// Fetch GitHub repositories
+        const username = 'Egemen-Inanc'; 
+        const apiUrl = `https://api.github.com/users/${username}/repos`;
+
+        fetch(apiUrl)
+            .then(response => response.json())
+            .then(data => {
+                const repoList = document.querySelector('.repo-list');
+
+                data.forEach(repo => {
+                    const repoItem = document.createElement('li');
+                    repoItem.classList.add('repo-item');
+
+                    const repoName = document.createElement('h3');
+                    repoName.classList.add('repo-name');
+                    repoName.textContent = repo.name;
+
+                    const repoDescription = document.createElement('p');
+                    repoDescription.classList.add('repo-description');
+                    repoDescription.textContent = repo.description;
+
+                    const repoLink = document.createElement('a');
+                    repoLink.classList.add('repo-link');
+                    repoLink.href = repo.html_url;
+                    repoLink.textContent = 'View on GitHub';
+
+                    repoItem.appendChild(repoName);
+                    repoItem.appendChild(repoDescription);
+                    repoItem.appendChild(repoLink);
+
+                    repoList.appendChild(repoItem);
+                });
+            })
+            .catch(error => {
+                console.log('Error fetching repositories:', error);
+            });
