@@ -47,12 +47,27 @@ body{
     align-items:  center;
     padding: 0 10%;
 }
-.products{
+.projects{
     display: flex;
     height: 200vh;
     align-items:  center;
     padding: 0 10%;
 }
+.projects-content{
+    max-width: 600px;
+}
+.projects-content h1{
+    font-size: 56px;
+    font-weight: 700;
+    line-height: 1.2 ;
+    
+}
+.projects-content h3{
+    font-size: 32px;
+    font-weight: 700;
+    color: #00abf0;
+}
+
 
 .home-content{
     max-width: 600px;
